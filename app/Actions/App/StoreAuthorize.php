@@ -37,7 +37,7 @@ class StoreAuthorize extends BaseAction
         $user = User::query()->firstOrCreate([
             'email' => $storeDetails->getEmail(),
         ], [
-            'name'     => $storeDetails->getStoreOwnerName(),
+            'name'     => $storeDetails->getStoreOwnerName() ?? 'no name',
             'password' => Hash::make(Str::random())
         ]);
 
